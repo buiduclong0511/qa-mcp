@@ -1,0 +1,32 @@
+{
+  "name": "qa-mcp",
+  "version": "0.1.0",
+  "description": "QA tester MCP server: project knowledge, test cases, runs, evidence and Excel review/result files backed by SQLite",
+  "type": "module",
+  "bin": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --test tests/",
+    "start": "node dist/index.js",
+    "dev": "npm run build && DANGEROUSLY_OMIT_AUTH=true npx @modelcontextprotocol/inspector node dist/index.js",
+    "setup": "node scripts/install.mjs",
+    "cleanup": "node dist/maintenance/cli.js cleanup",
+    "reaper": "node dist/maintenance/cli.js reaper"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "@playwright/mcp": "^0.0.83",
+    "better-sqlite3": "^12.11.1",
+    "exceljs": "^4.4.0",
+    "sharp": "^0.35.5",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^20.19.43",
+    "typescript": "^5.9.3"
+  }
+}
